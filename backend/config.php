@@ -1,11 +1,11 @@
- <?php
+<?php
 // config.php
 
-$host = 'mysql_contenidor'; # host docker
-#$host = 'localhost'; # host localhost
-$dbname = 'elementos';
-$username = 'usuario_db';
-$password = 'password_db';
+// Leer variables de entorno definidas en docker-compose.yml
+$host = getenv('DB_HOST') ?: 'mysql_contenidor';
+$dbname = getenv('DB_NAME') ?: 'elementos';
+$username = getenv('DB_USER') ?: 'usuario_db';
+$password = getenv('DB_PASSWORD') ?: 'password_db';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);

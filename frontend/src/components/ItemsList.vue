@@ -30,7 +30,8 @@ export default {
   methods: {
     fetchItems() {
       // Fetch items from API
-      fetch('http://localhost:8000/api/items')
+      // La URL apunta al puerto 8000 que es el puerto expuesto del backend
+      fetch('http://localhost:8000/')
         .then(response => response.json())
         .then(data => {
           this.items = data;
@@ -38,7 +39,7 @@ export default {
     },
     addItem() {
       // Add a new item
-      fetch('http://localhost:8000/api/items', {
+      fetch('http://localhost:8000/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
